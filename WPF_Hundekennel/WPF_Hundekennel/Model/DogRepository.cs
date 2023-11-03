@@ -24,59 +24,40 @@ namespace WPF_Hundekennel.Model
         }
 
         // skal der være en metode, som opreter en hund ud fra bruger-input?
-        public void Add(Dog dog) 
+        
+        public void Add(Dog dog)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                string INSERTsql = "INSERT INTO Dog (Lineage, Name, Identifier, DateOfBirth, DateAdded, Gender, BreedStatus, Dad, Mom, Color, Image, LastUpdated, IsAlive, HipDysplacia, ElbowDysplacia, Spondylose, HeartCondition)" +
-                    "VALUES(@lineage, @name, @identifier, @dateOfBirth, @dateAdded, @gender, @breedStatus, @dad, @mom, @color, @image, @lastUpdated, @isAlive, @hipDysplacia, @elbowDysplacia, @spondylose, @heartCondition)";
-                using (SqlCommand cmd = new SqlCommand(INSERTsql, connection)) 
+                using (SqlCommand cmd = new SqlCommand("EXEC sp_Add @lineage, @name, @identifier, @dateOfBirth, @dateAdded, @image", connection))
                 {
                     string lineage = dog.Lineage;
-                    string name = dog.Name;                    
+                    string name = dog.Name;
                     string identifier = dog.Identifier;
                     DateTime dateOfBirth = dog.DateOfBirth;
                     DateTime dateAdded = dog.DateAdded;
-                    string gender = dog.DogDescription.Gender.ToString();
-                    string breedStatus = dog.DogDescription.BreedStatus.ToString();
-                    string dad = dog.DogDescription.Dad;
-                    string mom = dog.DogDescription.Mom;
-                    string color = dog.DogDescription.Color.ToString();
                     string image = dog.Image;
-                    DateTime lastUpdated = dog.DogDescription.LastUpdated;
-                    Boolean isAlive = dog.DogDescription.IsAlive;
 
-                    
-                    cmd.Parameters.AddWithValue ("@lineage", lineage);
+                    cmd.Parameters.AddWithValue("@lineage", lineage);
                     cmd.Parameters.AddWithValue("@name", name);
                     cmd.Parameters.AddWithValue("@identifier", identifier);
                     cmd.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
                     cmd.Parameters.AddWithValue("@dateAdded", dateAdded);
-                    cmd.Parameters.AddWithValue("@gender", gender);
-                    cmd.Parameters.AddWithValue("@breedStatus", breedStatus);
-                    cmd.Parameters.AddWithValue("@dad", dad);
-                    cmd.Parameters.AddWithValue("@mom", mom);
-                    cmd.Parameters.AddWithValue("@color", color);
                     cmd.Parameters.AddWithValue("@image", image);
-                    cmd.Parameters.AddWithValue("@lastUpdated", lastUpdated);
-                    cmd.Parameters.AddWithValue("@isAlive", isAlive);
 
 
                     try
                     {
                         cmd.ExecuteNonQuery();
                     }
-                    catch (Exception ex) 
+                    catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                     }
-                    
                 }
             }
-            
-
         }
 
         public Dog GetById(string id) 
