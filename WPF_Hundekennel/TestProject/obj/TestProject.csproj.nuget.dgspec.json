@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj": {}
+    "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj": {
+    "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj",
+        "projectUniqueName": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj",
         "projectName": "TestProject",
-        "projectPath": "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj",
+        "projectPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj",
         "packagesPath": "C:\\Users\\45217\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\TestProject\\obj\\",
+        "outputPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj": {
-                "projectPath": "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj"
+              "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj": {
+                "projectPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj"
               }
             }
           }
@@ -57,9 +57,17 @@
               "target": "Package",
               "version": "[2.2.10, )"
             },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.2, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.7.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             },
             "coverlet.collector": {
               "target": "Package",
@@ -86,11 +94,11 @@
         }
       }
     },
-    "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj": {
+    "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj",
+        "projectUniqueName": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj",
         "projectName": "WPF_Hundekennel",
-        "projectPath": "C:\\Users\\45217\\Desktop\\Datamatiker\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj",
+        "projectPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
