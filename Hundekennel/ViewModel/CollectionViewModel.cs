@@ -14,14 +14,29 @@ namespace Hundekennel.ViewModel
     /// Indeholder et object af Collection View model
     /// </summary>
 
-    public class CollectionViewModel : INotifyPropertyChanged
+    public class CollectionViewModel : ObservableObject, INotifyPropertyChanged
     {
         private readonly DogRepository _dogRepository;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public ICommand AddDogCommand { get; }
-       
+        private List<Dog> _dogList;
+
+        public List<Dog> DogList
+        {
+            get { return _dogList; }
+            set
+            {
+                if (_dogList != value)
+                {
+                    _dogList = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
         #region SelectedDog
         public Dog SelectedDog { get; set; }
 
@@ -30,6 +45,7 @@ namespace Hundekennel.ViewModel
         {
             _dogRepository = dogRepository;
             AddDogCommand = new RelayCommand(AddDog, CanAddDog);
+            DogList = _dogRepository.GetAll();
         }
 
         private bool CanAddDog(object parameter)

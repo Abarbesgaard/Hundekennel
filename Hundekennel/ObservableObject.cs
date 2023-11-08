@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -22,6 +23,7 @@ namespace Hundekennel
         /// hvis den ikke er angivet ved kald af metoden. Den bruger opkaldsstedets medlemsnavn som standardværdi.</param>
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
+            Debug.WriteLine($"{name}");
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }

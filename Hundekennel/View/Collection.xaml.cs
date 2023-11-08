@@ -1,6 +1,8 @@
 ﻿using Hundekennel.Model;
+using Hundekennel.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +23,12 @@ namespace Hundekennel.View
     /// </summary>
     public partial class Collection : UserControl
     {
-       
+       private CollectionViewModel viewModel = new(new DogRepository());
         public Collection()
         {
             InitializeComponent();
-               
+            viewModel = (CollectionViewModel?)DataContext; 
+
         }
     }
 }
