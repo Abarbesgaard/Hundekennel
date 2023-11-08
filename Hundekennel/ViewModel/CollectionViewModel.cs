@@ -37,8 +37,10 @@ namespace Hundekennel.ViewModel
 
         private void AddDog(object parameter)
         {
+            var random = new Random();
+            int x = random.Next(1,1000);
             string DogName = parameter as string;
-            _dogRepository.Add(new Dog("LineageNR", DogName, "EMPTY TATTOO", DateTime.Now, DateTime.Now, EnumGender.H, EnumBreedStatus.Aktiv, "DADNR", "MOMNR", EnumColor.RG, "IMG", DateTime.Now, null, null, null, null, true));
+            _dogRepository.Add(new Dog(x.ToString(), DogName, "EMPTY TATTOO", DateTime.Now, DateTime.Now, EnumGender.H, EnumBreedStatus.Aktiv, "DADNR", "MOMNR", EnumColor.RG, "IMG", DateTime.Now, null, null, null, null, true));
         }
     }
     
