@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ullar\\source\\repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj": {}
+    "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ullar\\source\\repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj": {
+    "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ullar\\source\\repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj",
+        "projectUniqueName": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj",
         "projectName": "TestProject",
-        "projectPath": "C:\\Users\\ullar\\source\\repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj",
-        "packagesPath": "C:\\Users\\ullar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ullar\\Source\\Repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\TestProject\\obj\\",
+        "projectPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\TestProject.csproj",
+        "packagesPath": "C:\\Users\\45217\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\TestProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ullar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\45217\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\ullar\\source\\repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj": {
-                "projectPath": "C:\\Users\\ullar\\source\\repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj"
+              "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj": {
+                "projectPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj"
               }
             }
           }
@@ -85,15 +90,15 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ullar\\source\\repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj": {
+    "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\ullar\\source\\repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj",
+        "projectUniqueName": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj",
         "projectName": "WPF_Hundekennel",
-        "projectPath": "C:\\Users\\ullar\\source\\repos\\NyeRepo\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj",
+        "projectPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel\\WPF_Hundekennel.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
