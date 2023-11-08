@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hundekennel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace Hundekennel.View
     /// </summary>
     public partial class Collection : UserControl
     {
+       
         public Collection()
         {
             InitializeComponent();
+               
         }
     }
 }
