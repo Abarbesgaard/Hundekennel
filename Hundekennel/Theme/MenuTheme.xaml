@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="MenuBackgroundColor_PrimaryVariant"
+                     Color="#3700B3" />
+
+    <Thickness x:Key="MenuBorderThickness">2</Thickness>
+
+    <SolidColorBrush x:Key="MenuBackgroundColor_Primary"
+                     Color="#6200EE" />
+
+</ResourceDictionary>
