@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hundekennel.Model;
 
 namespace Hundekennel.ViewModel
 {
@@ -45,7 +46,7 @@ namespace Hundekennel.ViewModel
         {
             #region initialisering af objekter
             HomeVM = new HomeViewModel();
-            CollectionVM = new CollectionViewModel();
+            CollectionVM = new CollectionViewModel(new DogRepository());
             CurrentView = HomeVM;
             #endregion
 

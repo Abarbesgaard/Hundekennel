@@ -73,7 +73,8 @@
                                Content="Navn"
                                FontWeight="Bold"
                                FontSize="14" />
-                        <TextBox Background="White"
+                        <TextBox x:Name="HundeNavnTextBox" 
+                            Background="White"
                                  VerticalAlignment="Center"
                                  BorderBrush="White"
                                  Text="{Binding SelectedDog.DogName}" />
@@ -100,7 +101,19 @@
 
                     </StackPanel>
                 </Border>
+                <Button VerticalAlignment="Bottom"
+                        Width="30"
+                        Height="30"
+                        Content="+"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Stretch"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Margin="10"
+                        Command="{Binding AddDogCommand}"
+                        CommandParameter="{Binding ElementName=HundeNavnTextBox, Path=Text}">
 
+                </Button>
             </StackPanel>
         </Border>
         <!--#endregion-->
