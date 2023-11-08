@@ -100,7 +100,17 @@
 
                     </StackPanel>
                 </Border>
+                <Button VerticalAlignment="Bottom"
+                        Width="30"
+                        Height="30"
+                        Content="+"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Stretch"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Margin="10">
 
+                </Button>
             </StackPanel>
         </Border>
         <!--#endregion-->
