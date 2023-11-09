@@ -15,8 +15,8 @@ namespace Hundekennel.Model
         public DateTime DateOfBirth { get; private set; }
         public DateTime DateAdded { get; private set; }
         public string Image { get; private set; }
-        public DogDescription DogDescription { get; private set; }
-        public Health Health { get; private set; }
+        public DogDescription? DogDescription { get; private set; }
+        public Health? Health { get; private set; }
         #endregion
 
         /// <summary>
@@ -49,9 +49,24 @@ namespace Hundekennel.Model
             DateOfBirth = dateOfBirth;
             DateAdded = dateAdded;
             Image = image;
-            DogDescription = new DogDescription(gender, breedStatus, dad, mom, color, image, lastUpdated);
+            DogDescription = new DogDescription(gender, breedStatus, dad, mom, color, lastUpdated, isAlive);
             Health = new Health(hipDysplacia, elbowDysplacia, spondylose, heartCondition);
 
+        }
+
+        public Dog(string lineage, string name,string identifier,
+            DateTime dateOfBirth, DateTime dateAdded, string? img,
+            EnumGender? gender, EnumBreedStatus? breedStatus, 
+            EnumColor? color, bool? isAlive, DateTime? lastUpdated,
+            string? dad, string? mom)
+        {
+            Lineage = lineage;
+            Name = name;
+            Identifier = identifier;
+            DateOfBirth = dateOfBirth;
+            DateAdded = dateAdded;
+            Image =img;
+            DogDescription = new(gender, breedStatus, dad, mom, color, lastUpdated, isAlive);
         }
 
 

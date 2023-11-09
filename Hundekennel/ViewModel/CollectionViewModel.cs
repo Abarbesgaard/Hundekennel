@@ -29,6 +29,7 @@ namespace Hundekennel.ViewModel
         public CollectionViewModel( DogRepository dogRepository)
         {
             _dogRepository = dogRepository;
+            _dogRepository.GetById("153");
             AddDogCommand = new RelayCommand(AddDog, CanAddDog);
         }
 

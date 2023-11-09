@@ -10,7 +10,7 @@ namespace Hundekennel.Model
 
     {
         private string connectionString = "Server=10.56.8.36;Database=DB_F23_TEAM_05;User Id=DB_F23_TEAM_05;Password=TEAMDB_DB_05";
-
+        private List<Dog> dogList;
 
         public DogRepository()
         {
@@ -56,142 +56,103 @@ namespace Hundekennel.Model
 
         public Dog GetById(string id)
         {
-            Dog returnedDog = null;
+            GetAll();
+            Dog returnedDog = dogList.FirstOrDefault(x => x.Lineage == id);
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
 
-                string GetByIdSQL = "SELECT Name, Identifier, DateOfBirth, DateAdded, Gender, BreedStatus, Dad, Mom, Color, Image, LastUpdated, IsAlive, HipDysplacia, ElbowDysplacia, Spondylose, HeartCondition FROM Dog WHERE Lineage = @lineage";
-
-                using (SqlCommand cmd = new SqlCommand(GetByIdSQL, connection))
-                {
-                    cmd.Parameters.AddWithValue("@lineage", id);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        try
-                        {
-                            if (reader.Read())
-                            {
-                                string name = reader.GetString(1);
-                                string identifier = reader.GetString(2);
-                                DateTime dateOfBirth = reader.GetDateTime(3);
-                                DateTime dateAdded = reader.GetDateTime(4);
-                                string genderString = reader.GetString(5);
-                                EnumGender gender;
-                                if (Enum.TryParse<EnumGender>(genderString, out gender)) { }
-                                else
-                                {
-                                    throw new Exception("Fejl ved parsing af string til EnumGender");
-                                }
-                                string breedStatusString = reader.GetString(6);
-                                EnumBreedStatus breedStatus;
-                                if (Enum.TryParse<EnumBreedStatus>(breedStatusString, out breedStatus)) { }
-                                else
-                                {
-                                    throw new Exception("Fejl ved parsing af string til EnumBreedStatus");
-                                }
-                                string dad = reader.GetString(7);
-                                string mom = reader.GetString(8);
-                                string colorString = reader.GetString(9);
-                                EnumColor color;
-                                if (Enum.TryParse<EnumColor>(colorString, out color)) { }
-                                else
-                                {
-                                    throw new Exception("Fejl ved parsing af string til EnumColor");
-                                }
-                                string image = reader.GetString(10);
-                                DateTime lastUpdated = reader.GetDateTime(11);
-                                Boolean isAlive = reader.GetBoolean(12);
-                                string hipDysplacia = reader.GetString(13);
-                                string elbowDysplacia = reader.GetString(14);
-                                string spondylose = reader.GetString(15);
-                                string heartCondition = reader.GetString(16);
-
-                                returnedDog = new Dog(id, name, identifier, dateOfBirth, dateAdded, gender, breedStatus, dad, mom, color, image, lastUpdated, hipDysplacia, elbowDysplacia, spondylose, heartCondition);
-                                return returnedDog;
-                            }
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine($"Der kan ikke hentes en hund med id: {id} fra databasen", e.Message);
-
-                        }
-                        return null;
-                    }
-                }
-            }
+            return returnedDog;
         }
 
         public List<Dog> GetAll()
         {
             List<Dog> AllDogs = new List<Dog>();
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                string GetAllDogsSQL = "SELECT * FROM Dog";
+                SqlCommand cmd = new SqlCommand(@"SELECT * FROM DOG 
+                                        LEFT JOIN DOG_DESCRIPTION
+                                        ON DOG.Lineage = DOG_DESCRIPTION.DogLineage
+                                        "
 
-                using (SqlCommand cmd = new SqlCommand(GetAllDogsSQL, connection))
+                , connection);
+
+
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        try
+                        DogDescription dd = new();
+                        string imageTemp = null;
+                        if (!Convert.IsDBNull(reader[nameof(Dog.Image)]))
                         {
-                            while (reader.Read())
-                            {
-                                string lineage = reader.GetString(0);
-                                string name = reader.GetString(1);
-                                string identifier = reader.GetString(2);
-                                DateTime dateOfBirth = reader.GetDateTime(3);
-                                DateTime dateAdded = reader.GetDateTime(4);
-                                string genderString = reader.GetString(5);
-                                EnumGender gender;
-                                if (Enum.TryParse<EnumGender>(genderString, out gender)) { }
-                                else
-                                {
-                                    throw new Exception("Fejl ved parsing af string til EnumGender");
-                                }
-                                string breedStatusString = reader.GetString(6);
-                                EnumBreedStatus breedStatus;
-                                if (Enum.TryParse<EnumBreedStatus>(breedStatusString, out breedStatus)) { }
-                                else
-                                {
-                                    throw new Exception("Fejl ved parsing af string til EnumBreedStatus");
-                                }
-                                string dad = reader.GetString(7);
-                                string mom = reader.GetString(8);
-                                string colorString = reader.GetString(9);
-                                EnumColor color;
-                                if (Enum.TryParse<EnumColor>(colorString, out color)) { }
-                                else
-                                {
-                                    throw new Exception("Fejl ved parsing af string til EnumColor");
-                                }
-                                string image = reader.GetString(10);
-                                DateTime lastUpdated = reader.GetDateTime(11);
-                                Boolean isAlive = reader.GetBoolean(12);
-                                string hipDysplacia = reader.GetString(13);
-                                string elbowDysplacia = reader.GetString(14);
-                                string spondylose = reader.GetString(15);
-                                string heartCondition = reader.GetString(16);
+                            imageTemp = Convert.ToString(reader[nameof(Dog.Image)]);
+                        } 
 
-                                Dog returnedDog = new Dog(lineage, name, identifier, dateOfBirth, dateAdded, gender, breedStatus, dad, mom, color, image, lastUpdated, hipDysplacia, elbowDysplacia, spondylose, heartCondition);
-                                AllDogs.Add(returnedDog);
-                            }
-                        }
-                        catch (Exception e)
+                        if (!Convert.IsDBNull(reader[nameof(DogDescription.Gender)]))
                         {
-                            Console.WriteLine("Der kan ikke hentes registrerede hunde fra databasen" + e.Message);
-
+                            dd.Gender = (EnumGender)Convert.ToInt32(reader[nameof(DogDescription.Gender)]);
                         }
+
+                        if (!Convert.IsDBNull(reader[nameof(DogDescription.BreedStatus)]))
+                        {
+                            dd.BreedStatus = (EnumBreedStatus)Convert.ToInt32(reader[nameof(DogDescription.BreedStatus)]);
+                        }
+
+                        if (!Convert.IsDBNull(reader[nameof(DogDescription.Color)]))
+                        {
+                            dd.Color = (EnumColor)Convert.ToInt32(reader[nameof(DogDescription.Color)]);
+                        }
+
+                        if (!Convert.IsDBNull(reader[nameof(DogDescription.IsAlive)]))
+                        {
+                            dd.IsAlive = Convert.ToBoolean(reader[nameof(DogDescription.IsAlive)]);
+                        }
+
+                        if (!Convert.IsDBNull(reader[nameof(DogDescription.LastUpdated)]))
+                        {
+                            dd.LastUpdated = Convert.ToDateTime(reader[nameof(DogDescription.LastUpdated)]);
+                        }
+
+                        if (!Convert.IsDBNull(reader[nameof(DogDescription.Dad)]))
+                        {
+                            dd.Dad = Convert.ToString(reader[nameof(DogDescription.Dad)]);
+                        }
+
+                        if (!Convert.IsDBNull(reader[nameof(DogDescription.Mom)]))
+                        {
+                            dd.Mom = Convert.ToString(reader[nameof(DogDescription.Mom)]);
+                        }
+
+
+                        Dog tempDog = new(
+                            reader[nameof(Dog.Lineage)].ToString(),
+                            reader[nameof(Dog.Name)].ToString(),
+                            reader[nameof(Dog.Identifier)].ToString(),
+                            Convert.ToDateTime(reader[nameof(Dog.DateOfBirth)]),
+                            Convert.ToDateTime(reader[nameof(Dog.DateAdded)]),
+                            imageTemp,
+                            dd.Gender,
+                            dd.BreedStatus,
+                            dd.Color,
+                            dd.IsAlive,
+                            dd.LastUpdated,
+                            dd.Dad,
+                            dd.Mom
+                            );
+                        AllDogs.Add(tempDog);
 
                     }
+                    
                 }
+                dogList = AllDogs;
+                return AllDogs;
+
             }
-            return AllDogs;
+
+
+
         }
 
         public void UpdateById(Dog dogWithUpdatedValues)
