@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\45217\\Desktop\\Hundekennel\\Hundekennel\\Hundekennel.csproj": {}
+    "C:\\Users\\mathi\\source\\repos\\Hundekennel\\ny branch\\Hundekennel\\Hundekennel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\45217\\Desktop\\Hundekennel\\Hundekennel\\Hundekennel.csproj": {
+    "C:\\Users\\mathi\\source\\repos\\Hundekennel\\ny branch\\Hundekennel\\Hundekennel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\45217\\Desktop\\Hundekennel\\Hundekennel\\Hundekennel.csproj",
+        "projectUniqueName": "C:\\Users\\mathi\\source\\repos\\Hundekennel\\ny branch\\Hundekennel\\Hundekennel.csproj",
         "projectName": "Hundekennel",
-        "projectPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\Hundekennel\\Hundekennel.csproj",
-        "packagesPath": "C:\\Users\\45217\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\45217\\Desktop\\Hundekennel\\Hundekennel\\obj\\",
+        "projectPath": "C:\\Users\\mathi\\source\\repos\\Hundekennel\\ny branch\\Hundekennel\\Hundekennel.csproj",
+        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mathi\\source\\repos\\Hundekennel\\ny branch\\Hundekennel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\45217\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

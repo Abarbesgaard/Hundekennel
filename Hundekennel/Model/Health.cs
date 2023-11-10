@@ -8,10 +8,10 @@ namespace Hundekennel.Model
 {
     public class Health
     {
-        public string HipDysplacia { get; set; }
-        public string ElbowDysplacia { get; set; }
-        public string Spondylose { get; set; }
-        public string HeartCondition { get; set; }
+        public string? HipDysplacia { get; set; }
+        public string? ElbowDysplacia { get; set; }
+        public string? Spondylose { get; set; }
+        public string? HeartCondition { get; set; }
 
 
         public Health(string hipDysplacia, string elbowDysplacia, string spondylose, string heartCondition)

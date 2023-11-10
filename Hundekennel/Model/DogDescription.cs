@@ -9,15 +9,14 @@ namespace Hundekennel.Model
     public class DogDescription
     {
         #region Properties
-        public EnumGender Gender { get; set; }
-        public EnumBreedStatus BreedStatus { get; set; }
-        public string Dad { get; set; }
+        public EnumGender? Gender { get; set; }
+        public EnumBreedStatus? BreedStatus { get; set; }
+        public string? Dad { get; set; }
 
-        public string Mom { get; set; }
-        public EnumColor Color { get; set; }
-        public Boolean IsAlive { get; set; }
-
-        public DateTime LastUpdated { get; set; }
+        public string? Mom { get; set; }
+        public EnumColor? Color { get; set; }
+        public Boolean? IsAlive { get; set; }
+        public DateTime? LastUpdated { get; set; }
         #endregion
         /// <summary>
         /// Beskrivelse af hunden
@@ -30,7 +29,7 @@ namespace Hundekennel.Model
         /// <param name="picturePath"></param>
         /// <param name="lastUpdated"></param>
         /// <param name="isAlive"></param>
-        public DogDescription(EnumGender gender, EnumBreedStatus breedStatus, string dad, string mom, EnumColor color, string picturePath, DateTime lastUpdated, Boolean isAlive = true)
+        public DogDescription(EnumGender? gender, EnumBreedStatus? breedStatus, string? dad, string? mom, EnumColor? color, DateTime? lastUpdated, Boolean? isAlive)
         {
             Gender = gender;
             BreedStatus = breedStatus;
@@ -40,5 +39,7 @@ namespace Hundekennel.Model
             LastUpdated = lastUpdated;
             IsAlive = isAlive;
         }
+
+        public DogDescription() { }
     }
 }
