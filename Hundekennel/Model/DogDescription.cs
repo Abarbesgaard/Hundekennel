@@ -18,6 +18,8 @@ namespace Hundekennel.Model
         public Boolean? IsAlive { get; set; }
         public DateTime? LastUpdated { get; set; }
         #endregion
+
+        #region Dog Description
         /// <summary>
         /// Beskrivelse af hunden
         /// </summary>
@@ -39,10 +41,13 @@ namespace Hundekennel.Model
             LastUpdated = lastUpdated;
             IsAlive = isAlive;
         }
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructor for hunde klassen
         /// </summary>
         public DogDescription() { }
+        #endregion
     }
 }

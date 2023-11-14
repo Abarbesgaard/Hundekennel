@@ -19,6 +19,7 @@ namespace Hundekennel.Model
         public Health? Health { get; private set; }
         #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructoren for hundeklassen
         /// </summary>
@@ -53,7 +54,9 @@ namespace Hundekennel.Model
             Health = new Health(hipDysplacia, elbowDysplacia, spondylose, heartCondition);
 
         }
+        #endregion
 
+        #region Overloaded Constructor
         public Dog(string lineage, string name,string identifier,
             DateTime dateOfBirth, DateTime dateAdded, string? img,
             EnumGender? gender, EnumBreedStatus? breedStatus, 
@@ -68,7 +71,7 @@ namespace Hundekennel.Model
             Image =img;
             DogDescription = new(gender, breedStatus, dad, mom, color, lastUpdated, isAlive);
         }
-
+        #endregion
 
     }
 }
