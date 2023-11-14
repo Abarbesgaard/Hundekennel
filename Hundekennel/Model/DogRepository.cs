@@ -161,24 +161,15 @@ namespace Hundekennel.Model
             {
                 connection.Open();
 
-                string UPDATEstring = " UPDATE Dog SET Name = @name, Identifier = @identifier, DateOfBirth = @dateOfBirth, DateAdded = @dateAdded, Gender = @gender, " +
-                    "BreedStatus = @breedStatus, Dad = @dad, Mom = @mom, Color = @color, Image = @image, LastUpdated = @lastUpdated, IsAlive = @isAlive, HipDysplacia = @hipDysplacia, " +
-                    "ElbowDysplacia = @elbowDysplacia, Spondylose = @spondylose, HeartCondition = @heartCondition WHERE Lineage = @lineage";
+                string UPDATEstring = " UPDATE DOG SET Name = @name, Identifier = @identifier, DateOfBirth = @dateOfBirth, Image = @image WHERE Lineage = @lineage";
 
                 using (SqlCommand cmd = new SqlCommand(UPDATEstring, connection))
                 {
                     cmd.Parameters.AddWithValue("@name", dogWithUpdatedValues.Name);
                     cmd.Parameters.AddWithValue("@identifier", dogWithUpdatedValues.Identifier);
                     cmd.Parameters.AddWithValue("@dateOfBirth", dogWithUpdatedValues.DateOfBirth);
-                    cmd.Parameters.AddWithValue("@dateAdded", dogWithUpdatedValues.DateAdded);
-                    cmd.Parameters.AddWithValue("@gender", dogWithUpdatedValues.DogDescription.Gender);
-                    cmd.Parameters.AddWithValue("@breedStatus", dogWithUpdatedValues.DogDescription.BreedStatus);
-                    cmd.Parameters.AddWithValue("@dad", dogWithUpdatedValues.DogDescription.Dad);
-                    cmd.Parameters.AddWithValue("@mom", dogWithUpdatedValues.DogDescription.Mom);
-                    cmd.Parameters.AddWithValue("@color", dogWithUpdatedValues.DogDescription.Color);
                     cmd.Parameters.AddWithValue("@image", dogWithUpdatedValues.Image);
-                    cmd.Parameters.AddWithValue("@lastUpdated", dogWithUpdatedValues.DogDescription.LastUpdated);
-                    cmd.Parameters.AddWithValue("@isAlive", dogWithUpdatedValues.DogDescription.IsAlive);
+                    cmd.Parameters.AddWithValue("@lineage", dogWithUpdatedValues.Lineage);
 
                     try
                     {
@@ -243,8 +234,8 @@ namespace Hundekennel.Model
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string DElETESql = "Delete FROM Dog WHERE lineage = @lineage";
-
+                string DElETESql = "Delete FROM DOG WHERE lineage = @lineage";
+                connection.Open();
                 using (SqlCommand cmd = new SqlCommand(DElETESql, connection))
                 {
                     cmd.Parameters.AddWithValue("@lineage", id);
