@@ -1,5 +1,6 @@
 using Hundekennel;
 using Hundekennel.ViewModel;
+
 namespace TestProject
 {
     [TestClass]
@@ -12,7 +13,7 @@ namespace TestProject
         public void IsCollectionViewModelCreated()
         {
             // ARRANGE
-            CollectionViewModel _collectionVM = new CollectionViewModel();
+            CollectionViewModel _collectionVM = new();
             
             // ACT
             

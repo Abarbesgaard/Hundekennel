@@ -7,18 +7,33 @@ using System.Data.SqlClient;
 namespace Hundekennel.Model
 {
     public class DogRepository
-
     {
-        private string connectionString = "Server=10.56.8.36;Database=DB_F23_TEAM_05;User Id=DB_F23_TEAM_05;Password=TEAMDB_DB_05";
+        #region properties
+        /// <summary>
+        /// Strengen som bruges til at skabe forbindelse til Server
+        /// </summary>
+        private readonly string connectionString = "Server=10.56.8.36;Database=DB_F23_TEAM_05;User Id=DB_F23_TEAM_05;Password=TEAMDB_DB_05";
+        /// <summary>
+        /// Private liste, indeholder 'dog' - objekter
+        /// </summary>
         private List<Dog> dogList;
+        #endregion
 
+        #region constructor
+        /// <summary>
+        /// Constructoren for Dog Repository
+        /// </summary>
         public DogRepository()
         {
 
         }
+        #endregion
 
-        // skal der være en metode, som opreter en hund ud fra bruger-input?
-
+        #region Add Dog metoden
+        /// <summary>
+        /// Metoden til at tilføje hunde til databasen
+        /// </summary>
+        /// <param name="dog">Add dog Skal bruge et hunde objekt</param>
         public void Add(Dog dog)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -53,7 +68,14 @@ namespace Hundekennel.Model
                 }
             }
         }
+        #endregion
 
+        #region Get by Id metoden
+        /// <summary>
+        /// Metoden der henter én bestemt hund fra databasen
+        /// </summary>
+        /// <param name="id">hundens stamtavle nummer</param>
+        /// <returns></returns>
         public Dog GetById(string id)
         {
             GetAll();
@@ -62,7 +84,13 @@ namespace Hundekennel.Model
 
             return returnedDog;
         }
+        #endregion
 
+        #region Get All metoden
+        /// <summary>
+        /// Metoden til at se alle hunde i serveren
+        /// </summary>
+        /// <returns>En liste af hunde objekter</returns>
         public List<Dog> GetAll()
         {
             List<Dog> AllDogs = new List<Dog>();
@@ -142,19 +170,19 @@ namespace Hundekennel.Model
                             dd.Mom
                             );
                         AllDogs.Add(tempDog);
-
-                    }
-                    
+                    }                   
                 }
                 dogList = AllDogs;
                 return AllDogs;
-
             }
-
-
-
         }
+        #endregion
 
+        #region Update by Id metoden
+        /// <summary>
+        /// Metoden til at updatere en bestemt hund i databasen
+        /// </summary>
+        /// <param name="dogWithUpdatedValues">Den opdaterede hunde-objekt</param>
         public void UpdateById(Dog dogWithUpdatedValues)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -184,7 +212,13 @@ namespace Hundekennel.Model
             }
 
         }
+        #endregion
 
+        #region Update from datafile metoden
+        /// <summary>
+        /// metoden til at se alle hunde fra excel filen
+        /// </summary>
+        /// <param name="dataFileName">navnet på excelfilens sti</param>
         public void UpdateFromDataFile(string dataFileName)
         {
             DataCSVFileReader dCFR = new DataCSVFileReader();
@@ -229,7 +263,13 @@ namespace Hundekennel.Model
             }
 
         }
+        #endregion
 
+        #region Delete by Id metoden
+        /// <summary>
+        /// Slet en bestemt hund fra databasen
+        /// </summary>
+        /// <param name="id">Stamtavle nummer</param>
         public void DeleteById(string id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -243,5 +283,6 @@ namespace Hundekennel.Model
                 }
             }
         }
+        #endregion
     }
 }

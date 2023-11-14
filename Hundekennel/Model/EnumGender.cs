@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Hundekennel.Model
 {
+    /// <summary>
+    /// Hvilket køn hunden har
+    /// </summary>
     public enum EnumGender
     {
         H,

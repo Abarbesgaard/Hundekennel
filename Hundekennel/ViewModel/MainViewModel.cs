@@ -17,6 +17,7 @@ namespace Hundekennel.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand CollectionViewCommand { get; set; }
         #endregion 
+
         #region Properties
 
         public HomeViewModel HomeVM { get; set; }
@@ -37,6 +38,7 @@ namespace Hundekennel.ViewModel
         }
         #endregion
 
+        #region Constructor
         /// <summary>
         /// <para> MainView model Constructor, initialiserer de andre view models: Home view model, Collection View Model etc. </para>
         /// Hvis der kommer flere views skal de indsættes her
@@ -60,5 +62,6 @@ namespace Hundekennel.ViewModel
                 CurrentView = CollectionVM;
             });
         }
+        #endregion
     }
 }

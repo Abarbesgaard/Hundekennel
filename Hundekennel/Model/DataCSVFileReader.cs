@@ -9,11 +9,16 @@ namespace Hundekennel.Model
 {
     public class DataCSVFileReader
     {
-
+        /// <summary>
+        /// Denne metode læser en CSV fil
+        /// </summary>
+        /// <param name="dataFileName">navnet på filen</param>
+        /// <returns>liste af 'Dogs'</returns>
         public List<Dog> ReadCSVFile(string dataFileName)
         {
+            
             List<Dog> DogsFromCSVFile = new();
-
+            
             List<string> lines = File.ReadAllLines(dataFileName).Skip(1).ToList();
             foreach (string line in lines)
                 try

@@ -40,6 +40,9 @@ namespace Hundekennel.Model
             IsAlive = isAlive;
         }
 
+        /// <summary>
+        /// Constructor for hunde klassen
+        /// </summary>
         public DogDescription() { }
     }
 }

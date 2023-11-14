@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Hundekennel.Model
 {
+    /// <summary>
+    /// Om hunden er aktiv eller passiv i forhold til at avle på
+    /// </summary>
     public enum EnumBreedStatus
     {
         Passiv,

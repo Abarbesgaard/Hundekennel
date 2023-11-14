@@ -8,6 +8,7 @@ namespace Hundekennel.ViewModel
 {
     public class HomeViewModel
     {
+        #region Constructor
         /// <summary>
         /// Indeholder et objekt af Home View Model
         /// </summary>
@@ -15,5 +16,6 @@ namespace Hundekennel.ViewModel
         {
 
         }
+        #endregion
     }
 }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Hundekennel.Model
 {
+    /// <summary>
+    /// Hundens farve
+    /// </summary>
     public enum EnumColor
     {
         T,

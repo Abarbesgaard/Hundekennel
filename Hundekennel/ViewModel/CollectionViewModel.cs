@@ -13,29 +13,63 @@ namespace Hundekennel.ViewModel
     /// <summary>
     /// Indeholder et object af Collection View model
     /// </summary>
-
-    public class CollectionViewModel : INotifyPropertyChanged
+    public class CollectionViewModel : ObservableObject, INotifyPropertyChanged
     {
-        private readonly DogRepository _dogRepository;
+        #region Properties
+        
+        public readonly DogRepository _dogRepository;
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        private List<Dog> _allDogs;
+        public List<Dog> AllDogs
+        {
+            get { return _allDogs; }
+            set
+            {
+                if (_allDogs != value)
+                {
+                    _allDogs = value;
+                    OnPropertyChanged(nameof(AllDogs));
+                }
+            }
+        }
 
         public ICommand AddDogCommand { get; }
        
-        #region SelectedDog
         public Dog SelectedDog { get; set; }
 
         #endregion
+
+        #region Collection View Model
+        /// <summary>
+        /// Constructor på Collection view model. Denne har en DogRepository som variable
+        /// </summary>
+        /// <param name="dogRepository">Dog Repository variabel</param>
         public CollectionViewModel( DogRepository dogRepository)
         {
             _dogRepository = dogRepository;
+            AllDogs = _dogRepository.GetAll();
             _dogRepository.GetById("153");
             AddDogCommand = new RelayCommand(AddDog, CanAddDog);
         }
 
+        public CollectionViewModel()
+        {
+        }
+        #endregion
+
+        #region Metoder til Relay COmmand i Collection View Model Constructor
+        /// <summary>
+        /// Metoden tillader relay Command at tilføje hund til database
+        /// </summary>
+        /// <param name="parameter">Det er en generisk parameter af typen object, <br />hvilket betyder, at det kan acceptere værdier af enhver type, da alle typer i C# arver fra object</param>
+        /// <returns>True</returns>
         private bool CanAddDog(object parameter)
         { return true; }
 
+        /// <summary>
+        /// Metoden tillader relay Command at tilføje hund til database
+        /// </summary>
+        /// <param name="parameter">Det er en generisk parameter af typen object, <br />hvilket betyder, at det kan acceptere værdier af enhver type, da alle typer i C# arver fra object</param>
         private void AddDog(object parameter)
         {
             var random = new Random();
@@ -43,7 +77,8 @@ namespace Hundekennel.ViewModel
             string DogName = parameter as string;
             _dogRepository.Add(new Dog(x.ToString(), DogName, "EMPTY TATTOO", DateTime.Now, DateTime.Now, EnumGender.H, EnumBreedStatus.Aktiv, "DADNR", "MOMNR", EnumColor.RG, "IMG", DateTime.Now, null, null, null, null, true));
         }
+        #endregion
     }
-    
-   
+
+
 }
